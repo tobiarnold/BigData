@@ -12,9 +12,7 @@ from sklearn.ensemble import RandomForestRegressor
 def main():
     st.set_page_config(page_title="Big Data", page_icon="🏠", layout="wide")
     warnings.filterwarnings("ignore")
-    st.header("🏡 Vorhersage der Mietpreise in Deutschland")
-    st.subheader("📊 Business Analytics: Big Data")
-    hide_streamlit_style = """
+     hide_streamlit_style = """
            <style>
             div.block-container{padding-top:2rem;}
                div[data-testid="stToolbar"] {
@@ -25,9 +23,20 @@ def main():
            </style>
            """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+    st.header("🏡 Vorhersage der Mietpreise in Deutschland")
+    st.subheader("📊 Business Analytics: Big Data")
     df_data = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/tabelle.csv", dtype={"Postleitzahl": "string"})
     durchschnittsmieten = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/Durchschnittsmieten.csv")
     df_hist = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/Histogram.csv")
+     st.write("""
+                   - Die folgende Anwendung liefert eine **Prognose des Mietpreises** (warm) für ein Wohnobjekt anhand der Eingaben des Nutzers.
+                   - Unsere Datenbank entält über **178.000 Wohnobjekte** und wird stetig erweitert.
+                   - Neben der Prognose können auch verschiedene **Diagramme** und eine **interaktive Karte** aus dem Datensatz betrachtet werden.
+                   """)
+    st.info("Für Premiumuser wird exakt aufgezeigt, wie Sie den Wert Ihres Wohnobjektes verbessern können. Für Mehr Informationen kontaktieren Sie uns unter: bigdataaalen@gmail.com\n\n"\
+            '✅ Zum Starten der Prognose bitte Parameter an der Sidebar auswählen und den "Parameter bestätigen" Button drücken.')
+    st.markdown("""----""")
+    st.markdown("##### Die Prognostizierte monatliche Miete für das Wohnobjekt beträgt: ")
     with st.form(key='Form1'):
         with st.sidebar:
             wohnraum = st.sidebar.slider("Wohnfläche in m²:", 8, 500, 80, 1)
@@ -41,15 +50,6 @@ def main():
             kueche = st.radio("Küche vorhanden", ("Ja", "Nein"), index=0)
             karte = st.radio("Karte anzeigen",("Ja", "Nein"),index=1)
             submitted1 = st.form_submit_button(label="Parameter bestätigen")
-    st.write("""
-                   - Die folgende Anwendung liefert eine **Prognose des Mietpreises** (warm) für ein Wohnobjekt anhand der Eingaben des Nutzers.
-                   - Unsere Datenbank entält über **178.000 Wohnobjekte** und wird stetig erweitert.
-                   - Neben der Prognose können auch verschiedene **Diagramme** und eine **interaktive Karte** aus dem Datensatz betrachtet werden.
-                   """)
-    st.info("Für Premiumuser wird exakt aufgezeigt, wie Sie den Wert Ihres Wohnobjektes verbessern können. Für Mehr Informationen kontaktieren Sie uns unter: bigdataaalen@gmail.com\n\n"\
-            '✅ Zum Starten der Prognose bitte Parameter an der Sidebar auswählen und den "Parameter bestätigen" Button drücken.')
-    st.markdown("""----""")
-    st.markdown("##### Die Prognostizierte monatliche Miete für das Wohnobjekt beträgt: ")
     if submitted1:
         try:
             with st.spinner("Bitte warten Prognose wird erstellt"):
