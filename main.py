@@ -28,10 +28,10 @@ def main():
     df_data = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/tabelle.csv", dtype={"Postleitzahl": "string"})
     durchschnittsmieten = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/Durchschnittsmieten.csv")
     df_hist = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/Histogram.csv")
-     st.write("""
-                   - Die folgende Anwendung liefert eine **Prognose des Mietpreises** (warm) für ein Wohnobjekt anhand der Eingaben des Nutzers.
-                   - Unsere Datenbank entält über **178.000 Wohnobjekte** und wird stetig erweitert.
-                   - Neben der Prognose können auch verschiedene **Diagramme** und eine **interaktive Karte** aus dem Datensatz betrachtet werden.
+    st.write("""
+                  - Die folgende Anwendung liefert eine **Prognose des Mietpreises** (warm) für ein Wohnobjekt anhand der Eingaben des Nutzers.
+                  - Unsere Datenbank entält über **178.000 Wohnobjekte** und wird stetig erweitert.
+                  - Neben der Prognose können auch verschiedene **Diagramme** und eine **interaktive Karte** aus dem Datensatz betrachtet werden.
                    """)
     st.info("Für Premiumuser wird exakt aufgezeigt, wie Sie den Wert Ihres Wohnobjektes verbessern können. Für Mehr Informationen kontaktieren Sie uns unter: bigdataaalen@gmail.com\n\n"\
             '✅ Zum Starten der Prognose bitte Parameter an der Sidebar auswählen und den "Parameter bestätigen" Button drücken.')
