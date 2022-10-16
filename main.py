@@ -42,10 +42,9 @@ def main():
             karte = st.radio("Karte anzeigen",("Ja", "Nein"),index=1)
             submitted1 = st.form_submit_button(label="Parameter bestätigen")
     st.write("""
-                   - Die folgende Anwendung liefert eine Prognose des Mietpreises (warm) für ein Wohnobjekt anhand der Eingaben des Nutzers.
-                   - Unsere Datenbank entält über 178.000 Wohnobjekte und wird stetig erweitert.
-                   - Neben der Prognose können auch verschiedene Diagramme und eine interaktive Karte aus dem Datensatz betrachtet werden.
-                   - ⚠️ **Beim Anzeigen der Deutschlandkarte (erscheint ganz unten) und einer erneuten Prognose bitte Seite mit der Taste F5 neu laden. Das Generieren der Karte erfordert zudem etwas Zeit.**
+                   - Die folgende Anwendung liefert eine **Prognose des Mietpreises** (warm) für ein Wohnobjekt anhand der Eingaben des Nutzers.
+                   - Unsere Datenbank entält über **178.000 Wohnobjekte** und wird stetig erweitert.
+                   - Neben der Prognose können auch verschiedene **Diagramme** und eine **interaktive Karte** aus dem Datensatz betrachtet werden.
                    """)
     st.info("Für Premiumuser wird exakt aufgezeigt, wie Sie den Wert Ihres Wohnobjektes verbessern können. Für Mehr Informationen kontaktieren Sie uns unter: bigdataaalen@gmail.com\n\n"\
             '✅ Zum Starten der Prognose bitte Parameter an der Sidebar auswählen und den "Parameter bestätigen" Button drücken.')
@@ -183,6 +182,7 @@ def main():
             st.plotly_chart(fig4, use_container_width=True, config=config)
     except:
         st.write("Diagramme konnten nicht vollständig geladen werden, bitte Seite neu laden.")
+    st.write(" ⚠️ **Beim Anzeigen der Deutschlandkarte und einer erneuten Prognose bitte Seite mit der Taste F5 neu laden. Das Generieren der Karte erfordert zudem etwas Zeit.**")
     if submitted1:
         if karte == "Ja":
             try:
@@ -191,6 +191,7 @@ def main():
                     map_all = folium.Map(location=[map_folium.lat.mean(), map_folium.long.mean()], zoom_start=6)
                     for index, location_info in map_folium.iterrows():
                         folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(map_all)
+                    st.write("Zum zoomen Scrollrad der Maus benutzen oder Plus/Minus Button auf der Karte")
                     st_folium(map_all, width=700, height=700)
                     st.success("Karte geladen!")
                 time.sleep(99999)
