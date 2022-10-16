@@ -12,7 +12,7 @@ from sklearn.ensemble import RandomForestRegressor
 def main():
     st.set_page_config(page_title="Big Data", page_icon="🏠", layout="wide")
     warnings.filterwarnings("ignore")
-     hide_streamlit_style = """
+    hide_streamlit_style = """
            <style>
             div.block-container{padding-top:2rem;}
                div[data-testid="stToolbar"] {
