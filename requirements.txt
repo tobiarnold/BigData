@@ -1,0 +1,8 @@
+streamlit ==1.11.1
+pandas ==1.4.3
+streamlit-aggrid==0.3.3
+streamlit-folium==0.3.3
+sklearn==0.0
+plotly-express==0.4.1
+folium==0.13.0
+
