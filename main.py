@@ -153,7 +153,7 @@ def main():
         AgGrid(df_data,height=400)
         st.markdown("""----""")
     except:
-        st.write("Bitte Seite neu laden, Datentabelle konnte nicht geladen werden.")
+        st.write("Bitte Seite neu laden oder einen Slider an der Sidebar nocheinmal betätigen, um Datentabelle neu zu laden.")
     try:
         config = {"displayModeBar": False}
         fig1 = px.bar(durchschnittsmieten, x="Bundesland", y="Durchschnittsmiete")
