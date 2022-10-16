@@ -25,9 +25,9 @@ def main():
            </style>
            """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    df_data = pd.read_csv(r"C:\Users\Besitzer\PycharmProjects\Big Data\tabelle.csv", dtype={"Postleitzahl": "string"})
-    durchschnittsmieten = pd.read_csv(r"C:\Users\Besitzer\PycharmProjects\Big Data\Durchschnittsmieten.csv")
-    df_hist = pd.read_csv(r"C:\Users\Besitzer\PycharmProjects\Big Data\Histogram.csv")
+    df_data = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/tabelle.csv", dtype={"Postleitzahl": "string"})
+    durchschnittsmieten = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/Durchschnittsmieten.csv")
+    df_hist = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/Histogram.csv")
     with st.form(key='Form1'):
         with st.sidebar:
             wohnraum = st.sidebar.slider("Wohnfläche in m²:", 8, 500, 80, 1)
@@ -53,7 +53,7 @@ def main():
     st.markdown("##### Die Prognostizierte monatliche Miete für das Wohnobjekt beträgt: ")
     if submitted1:
         try:
-            machine_learning = pd.read_feather(r"C:\Users\Besitzer\PycharmProjects\Big Data\ml_streamlit.feather")
+            machine_learning = pd.read_feather(r"https://github.com/tobiarnold/BigData/blob/main/ml_streamlit.feather?raw=true")
             x = machine_learning[["livingSpaceRange", "livingSpace", "noRoomsRange", "noRooms","yearConstructedRange", "yearConstructed","hasKitchen", "regio1_numeric"]]
             y = machine_learning["totalRent"]
             X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
@@ -186,7 +186,7 @@ def main():
         if karte == "Ja":
             try:
                 with st.spinner("Bitte warten Karte wird geladen"):
-                    map_folium = pd.read_csv(r"C:\Users\Besitzer\PycharmProjects\Big Data\geo_immo.csv")
+                    map_folium = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/geo_immo.csv")
                     map_all = folium.Map(location=[map_folium.lat.mean(), map_folium.long.mean()], zoom_start=6)
                     for index, location_info in map_folium.iterrows():
                         folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(map_all)
