@@ -40,7 +40,7 @@ def main():
     with st.form(key='Form1'):
         with st.sidebar:
             wohnraum = st.sidebar.slider("Wohnfläche in m²:", 8, 500, 80, 1)
-            raeume = st.sidebar.slider("Anzahl Räume:", 1, 12, 4, 1)
+            raeume = st.sidebar.slider("Anzahl Räume:", 1.0, 12.0, 4.0, 0.5)
             baujahr = st.sidebar.slider("Baujahr angeben:", 1500, 2020, 1980, 1)
             bundesland = st.sidebar.selectbox("Bundesland auswählen:",
                                           options=["Baden-Württemberg","Bayern","Berlin","Brandenburg","Bremen","Hamburg",
