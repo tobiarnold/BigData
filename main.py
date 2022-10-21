@@ -188,7 +188,7 @@ def main():
         if karte == "Ja":
             try:
                 with st.spinner("Bitte warten Karte wird geladen"):
-                    map_folium = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/geo_immo.csv")
+                    map_folium = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/geo_immo.csv")
                     map_all = folium.Map(location=[map_folium.lat.mean(), map_folium.long.mean()], zoom_start=6)
                     for index, location_info in map_folium.iterrows():
                         folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(map_all)
