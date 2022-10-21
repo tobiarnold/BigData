@@ -54,7 +54,7 @@ def main():
     if submitted1:
         try:
             with st.spinner("Bitte warten Prognose wird erstellt"):
-                machine_learning = pd.read_feather(r"https://github.com/tobiarnold/BigData/blob/main/ml_streamlit.feather?raw=true")
+                machine_learning = pd.read_feather(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/ml_streamlit.feather")
                 x = machine_learning[["livingSpaceRange", "livingSpace", "noRoomsRange", "noRooms","yearConstructedRange", "yearConstructed","hasKitchen", "regio1_numeric"]]
                 y = machine_learning["totalRent"]
                 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
