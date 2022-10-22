@@ -33,16 +33,16 @@ def main():
                   - Unsere Datenbank entält über **178.000 Wohnobjekte** und wird stetig erweitert.
                   - Neben der Prognose können auch verschiedene **Diagramme** und eine **interaktive Karte** aus dem Datensatz betrachtet werden
                    """)
+    st.info("Für Premiumuser wird exakt aufgezeigt, wie Sie den Wert Ihres Wohnobjektes verbessern können. Für Mehr Informationen kontaktieren Sie uns unter: bigdataaalen@gmail.com\n\n"\
+            '✅ Zum Starten der Prognose bitte Parameter an der Sidebar auswählen und den "Parameter bestätigen" Button drücken.')
+    st.write("⚠️ bei Zugriff mit mobilen Geräten ist der Filter für die Prognose standardmäßig ausgeblendet und lässt sich mit dem Pfeil oben links wieder einblenden")
     try:
         st.write("Auszug aus unserer Datenbank:")
         AgGrid(df_data,height=400)
         st.markdown("""----""")
     except:
         st.write("Bitte Seite neu laden oder einen Slider an der Sidebar nocheinmal betätigen, um Datentabelle neu zu laden.")
-    st.info("Für Premiumuser wird exakt aufgezeigt, wie Sie den Wert Ihres Wohnobjektes verbessern können. Für Mehr Informationen kontaktieren Sie uns unter: bigdataaalen@gmail.com\n\n"\
-            '✅ Zum Starten der Prognose bitte Parameter an der Sidebar auswählen und den "Parameter bestätigen" Button drücken.')
-    st.write("⚠️ bei Zugriff mit mobilen Geräten ist der Filter für die Prognose standardmäßig ausgeblendet und lässt sich mit dem Pfeil oben links wieder einblenden")
-    st.markdown("""----""")
+    #st.markdown("""----""")
     st.markdown("##### Die Prognostizierte monatliche Miete für das Wohnobjekt beträgt: ")
     with st.form(key='Form1'):
         with st.sidebar:
