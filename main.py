@@ -58,7 +58,7 @@ def main():
                 x = machine_learning[["livingSpaceRange", "livingSpace", "noRoomsRange", "noRooms","yearConstructedRange", "yearConstructed","hasKitchen", "regio1_numeric"]]
                 y = machine_learning["totalRent"]
                 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
-                ml_model = RandomForestRegressor(random_state = 42,n_estimators=100,max_depth=10)
+                ml_model = RandomForestRegressor(random_state = 42,n_estimators=50,max_depth=10)
                 ml_model.fit(X_train, y_train)
                 livingSpace=wohnraum
                 if wohnraum >=machine_learning["livingSpace"].quantile((1/7)):
