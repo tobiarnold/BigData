@@ -25,7 +25,7 @@ def main():
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
     st.header("🏡 Vorhersage der Mietpreise in Deutschland")
     st.subheader("📊 Business Analytics: Big Data")
-    df_data = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/tabelle.csv", dtype={"Postleitzahl": "string"})
+    df_data = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/tabelle.csv", dtype={"Postleitzahl": "string"})
     durchschnittsmieten = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/Durchschnittsmieten.csv")
     df_hist = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/Histogram.csv")
     st.write("""
