@@ -163,6 +163,9 @@ def main():
         fig2 = px.bar(durchschnittsmieten, x="Bundesland", y="Durchschnittsmiete pro qm",color="Durchschnittsmiete pro qm")
         fig2.update_layout(title={"text":"Durchschnittsmieten (kalt) je qm","y":0.92},barmode="stack", xaxis={"categoryorder": "total ascending"},coloraxis_colorbar=dict(title="Miete/qm"))
         st.plotly_chart(fig2, use_container_width=True, config=config)
+        fig5=px.bar(durchschnittsmieten, x="Bundesland", y="Preistrend in %")
+        fig5.update_layout(title={"text":"Preistrend je Bundesland","y":0.92})
+        st.plotly_chart(fig5, use_container_width=True, config=config)
         bundesland=[]
         option = st.selectbox("Bundesland auswählen für Boxplot bzw. Histogramm", (
         "Baden-Württemberg", "Bayern", "Berlin", "Brandenburg", "Bremen", "Hamburg", "Hessen", "Mecklenburg-Vorpommern",
