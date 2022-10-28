@@ -160,13 +160,13 @@ def main():
         fig1 = px.bar(durchschnittsmieten, x="Bundesland", y="Durchschnittsmiete")
         fig1.update_layout(title={"text":"Durchschnittsmieten (warm) je Bundesland (aufsteigend sortiert)","y":0.92})
         st.plotly_chart(fig1, use_container_width=True, config=config)
-        fig5=px.bar(durchschnittsmieten, x="Bundesland", y="Preistrend in %",color="Preistrend in %")
-        fig5.update_layout(title={"text":"Preistrend je Bundesland","y":0.92},barmode="stack",coloraxis_colorbar=dict(title="Preistrend"))
-        #fig5.update_traces(marker_color='green')
-        st.plotly_chart(fig5, use_container_width=True, config=config)
-        fig2 = px.bar(durchschnittsmieten, x="Bundesland", y="Durchschnittsmiete pro qm",color="Durchschnittsmiete pro qm")
-        fig2.update_layout(title={"text":"Durchschnittsmieten (kalt) je qm (aufsteigend sortiert)","y":0.92},barmode="stack", xaxis={"categoryorder": "total ascending"},coloraxis_colorbar=dict(title="Miete/qm"))
+        fig2=px.bar(durchschnittsmieten, x="Bundesland", y="Preistrend in %",color="Preistrend in %")
+        fig2.update_layout(title={"text":"Preistrend je Bundesland","y":0.92},barmode="stack",coloraxis_colorbar=dict(title="Preistrend"))
+        #fig2.update_traces(marker_color='green')
         st.plotly_chart(fig2, use_container_width=True, config=config)
+        fig3 = px.bar(durchschnittsmieten, x="Bundesland", y="Durchschnittsmiete pro qm",color="Durchschnittsmiete pro qm")
+        fig3.update_layout(title={"text":"Durchschnittsmieten (kalt) je qm (aufsteigend sortiert)","y":0.92},barmode="stack", xaxis={"categoryorder": "total ascending"},coloraxis_colorbar=dict(title="Miete/qm"))
+        st.plotly_chart(fig3, use_container_width=True, config=config)
         bundesland=[]
         option = st.selectbox("Bundesland auswählen für Boxplot bzw. Histogramm", (
         "Baden-Württemberg", "Bayern", "Berlin", "Brandenburg", "Bremen", "Hamburg", "Hessen", "Mecklenburg-Vorpommern",
@@ -177,14 +177,14 @@ def main():
         df_hist = df_hist[df_hist["regio1"].isin(bundesland)]
         fig_col1, fig_col2 = st.columns(2)
         with fig_col1:
-            fig3 = px.box(df_hist, x="totalRent", title="Boxplot der Miete (warm)",labels={"totalRent":"Miete (warm)"})
-            fig3.update_layout(title={"y": 0.83, "x": 0.5},xaxis_tickformat=".")
-            st.plotly_chart(fig3, use_container_width=True, config=config)
-        with fig_col2:
-            fig4 = px.histogram(df_hist, x="totalRent", nbins=50, title="Histogramm der Miete (warm)",
-                     labels={"totalRent":"Miete (warm)"}).update_layout(yaxis_title="Anzahl")
+            fig4 = px.box(df_hist, x="totalRent", title="Boxplot der Miete (warm)",labels={"totalRent":"Miete (warm)"})
             fig4.update_layout(title={"y": 0.83, "x": 0.5},xaxis_tickformat=".")
             st.plotly_chart(fig4, use_container_width=True, config=config)
+        with fig_col2:
+            fig5 = px.histogram(df_hist, x="totalRent", nbins=50, title="Histogramm der Miete (warm)",
+                     labels={"totalRent":"Miete (warm)"}).update_layout(yaxis_title="Anzahl")
+            fig5.update_layout(title={"y": 0.83, "x": 0.5},xaxis_tickformat=".")
+            st.plotly_chart(fig5, use_container_width=True, config=config)
     except:
         st.write("Diagramme konnten nicht vollständig geladen werden, bitte Seite neu laden.")
     st.write(" ⚠️ **Beim Anzeigen der Deutschlandkarte und einer erneuten Prognose bitte Seite mit der Taste F5 neu laden. Das Generieren der Karte erfordert zudem etwas Zeit.**")
