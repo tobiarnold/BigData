@@ -3,6 +3,7 @@ import pandas as pd
 from st_aggrid import AgGrid
 import plotly.express as px
 import folium
+from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
 import time
 import warnings
@@ -194,8 +195,9 @@ def main():
                 with st.spinner("Bitte warten Karte wird geladen"):
                     map_folium = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/geo_immo.csv")
                     map_all = folium.Map(location=[map_folium.lat.mean(), map_folium.long.mean()], zoom_start=6)
+                    marker_cluster = MarkerCluster().add_to(map_all)
                     for index, location_info in map_folium.iterrows():
-                        folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(map_all)
+                        folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(map_all).add_to(marker_cluster)
                     st.write("Zum zoomen Scrollrad der Maus benutzen oder Plus/Minus Button auf der Karte")
                     st_folium(map_all, width=700, height=700)
                     st.success("Karte geladen!")
