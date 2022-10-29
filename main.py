@@ -197,7 +197,7 @@ def main():
                     map_all = folium.Map(location=[map_folium.lat.mean(), map_folium.long.mean()], zoom_start=6)
                     marker_cluster = MarkerCluster().add_to(map_all)
                     for index, location_info in map_folium.iterrows():
-                        folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(map_all).add_to(marker_cluster)
+                        folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(marker_cluster)
                     st.write("Zum zoomen Scrollrad der Maus benutzen oder Plus/Minus Button auf der Karte")
                     st_folium(map_all, width=700, height=700)
                     st.success("Karte geladen!")
