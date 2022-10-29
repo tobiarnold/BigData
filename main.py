@@ -199,7 +199,7 @@ def main():
                     for index, location_info in map_folium.iterrows():
                         folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(marker_cluster)
                     st.write("Zum zoomen Scrollrad der Maus benutzen oder Plus/Minus Button auf der Karte")
-                    st_folium(map_all, width=700, height=700)
+                    st_folium(map_all, width=1000)
                     st.success("Karte geladen!")
                 time.sleep(99999)
             except:
