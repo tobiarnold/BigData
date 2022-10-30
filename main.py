@@ -63,7 +63,7 @@ def main():
         try:
             with st.spinner("Bitte warten Prognose wird erstellt"):
                 machine_learning = pd.read_feather(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/ml_streamlit.feather")
-                x = machine_learning[["livingSpaceRange", "livingSpace", "noRoomsRange", "noRooms","yearConstructedRange", "yearConstructed","hasKitchen", "regio1_numeric"]]
+                x = machine_learning[["livingSpaceRange", "livingSpace", "noRoomsRange", "noRooms","yearConstructedRange", "yearConstructed","hasKitchen", "regio1_numeric","big_city"]]
                 y = machine_learning["totalRent"]
                 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
                 ml_model = RandomForestRegressor(random_state = 42,n_estimators=50,max_depth=10)
@@ -149,7 +149,11 @@ def main():
                     regio1_numeric = 10
                 elif bundesland=="Thüringen":
                     regio1_numeric = 2
-                price_prediction =ml_model.predict([[livingSpaceRange,livingSpace,noRoomsRange,noRooms,yearConstructedRange,yearConstructed,hasKitchen,regio1_numeric]])
+                if big_city=="Ja":
+                    big_city=True
+                else:
+                    big_city = False
+                price_prediction =ml_model.predict([[livingSpaceRange,livingSpace,noRoomsRange,noRooms,yearConstructedRange,yearConstructed,hasKitchen,regio1_numeric,big_city]])
                 x = int(price_prediction)
                 x_unter = int(x * 0.98)
                 x_ober = int(x * 1.02)
