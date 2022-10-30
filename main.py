@@ -203,7 +203,7 @@ def main():
                     marker_cluster = MarkerCluster().add_to(map_all)
                     for index, location_info in map_folium.iterrows():
                         folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(marker_cluster)
-                    st.write("Zum zoomen Scrollrad der Maus benutzen oder Plus/Minus Button auf der Karte")
+                    st.write("Zum zoomen auf gewünschte Stelle klicken, Scrollrad der Maus benutzen oder Plus/Minus Button auf der Karte")
                     st.write("Die Karte enthält alle PLZs aus dem Datensatz mit der dazugehörigen Anzahl an Wohnobjekten und der jeweiligen Durchschnittsmiete.")
                     st_folium(map_all, width=1000)
                     st.success("Karte geladen!")
