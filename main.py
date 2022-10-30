@@ -55,6 +55,7 @@ def main():
                                                    "Hessen","Mecklenburg-Vorpommern","Niedersachsen","Nordrhein-Westfalen",
                                                    "Rheinland-Pfalz","Saarland","Sachsen","Sachsen-Anhalt","Schleswig-Holstein","Thüringen"]
                                               , index=0)
+            big_city = st.radio("Befindet sich die Immobilie in einer Großstadt?", ("Ja", "Nein"), index=1)
             kueche = st.radio("Küche vorhanden", ("Ja", "Nein"), index=0)
             karte = st.radio("Karte anzeigen",("Ja", "Nein"),index=1)
             submitted1 = st.form_submit_button(label="Parameter bestätigen")
