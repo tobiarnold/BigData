@@ -46,7 +46,7 @@ def main():
     #st.markdown("""----""")
     st.markdown("##### Die Prognostizierte monatliche Miete für das Wohnobjekt beträgt: ")
     with st.form(key='Form1'):
-        with st.sidebar.subheader("💡 Parameter auswählen:"):
+        with st.sidebar:
             wohnraum = st.sidebar.slider("Wohnfläche in m²:", 8, 500, 80, 1)
             raeume = st.sidebar.slider("Anzahl Räume:", 1.0, 12.0, 4.0, 0.5)
             baujahr = st.sidebar.slider("Baujahr angeben:", 1500, 2020, 1980, 1)
