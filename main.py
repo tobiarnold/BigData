@@ -44,7 +44,7 @@ def main():
     except:
         st.write("Bitte Seite neu laden oder einen Slider an der Sidebar nocheinmal betätigen, um Datentabelle neu zu laden.")
     #st.markdown("""----""")
-    st.markdown("##### Die Prognostizierte monatliche Miete für das Wohnobjekt beträgt: ")
+    st.markdown("##### Die prognostizierte monatliche Miete für das Wohnobjekt beträgt: ")
     with st.form(key='Form1'):
         with st.sidebar:
             wohnraum = st.sidebar.slider("Wohnfläche in m²:", 8, 500, 80, 1)
