@@ -69,7 +69,7 @@ def main():
                 ml_model = RandomForestRegressor(random_state = 42,n_estimators=50,max_depth=10)
                 ml_model.fit(X_train, y_train)
                 livingSpace=wohnraum
-                if wohnraum <machine_learning["livingSpace"].quantile((1/7)):
+                if wohnraum < machine_learning["livingSpace"].quantile((1/7)):
                     livingSpaceRange =1
                 elif wohnraum < machine_learning["livingSpace"].quantile((2/7)):
                     livingSpaceRange = 2
@@ -84,13 +84,13 @@ def main():
                 else:
                     livingSpaceRange = 7
                 noRooms=raeume
-                if raeume <machine_learning["noRooms"].quantile((1/5)):
+                if raeume < machine_learning["noRooms"].quantile((1/5)):
                     noRoomsRange=1
-                elif raeume <machine_learning["noRooms"].quantile((2/5)):
+                elif raeume < machine_learning["noRooms"].quantile((2/5)):
                     noRoomsRange=2
-                elif raeume <machine_learning["noRooms"].quantile((3/5)):
+                elif raeume < machine_learning["noRooms"].quantile((3/5)):
                     noRoomsRange=3
-                elif raeume <machine_learning["noRooms"].quantile((4/5)):
+                elif raeume < machine_learning["noRooms"].quantile((4/5)):
                     noRoomsRange=4
                 else:
                     noRoomsRange = 5
