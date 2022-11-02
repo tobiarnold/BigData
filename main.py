@@ -69,47 +69,47 @@ def main():
                 ml_model = RandomForestRegressor(random_state = 42,n_estimators=50,max_depth=10)
                 ml_model.fit(X_train, y_train)
                 livingSpace=wohnraum
-                if wohnraum >=machine_learning["livingSpace"].quantile((1/7)):
+                if wohnraum <machine_learning["livingSpace"].quantile((1/7)):
                     livingSpaceRange =1
-                elif wohnraum >= machine_learning["livingSpace"].quantile((2/7)):
+                elif wohnraum < machine_learning["livingSpace"].quantile((2/7)):
                     livingSpaceRange = 2
-                elif wohnraum >= machine_learning["livingSpace"].quantile((3/7)):
+                elif wohnraum < machine_learning["livingSpace"].quantile((3/7)):
                     livingSpaceRange = 3
-                elif wohnraum >= machine_learning["livingSpace"].quantile((4/7)):
+                elif wohnraum < machine_learning["livingSpace"].quantile((4/7)):
                     livingSpaceRange = 4
-                elif wohnraum >= machine_learning["livingSpace"].quantile((5/7)):
+                elif wohnraum < machine_learning["livingSpace"].quantile((5/7)):
                     livingSpaceRange = 5
-                elif wohnraum >= machine_learning["livingSpace"].quantile((6/7)):
+                elif wohnraum < machine_learning["livingSpace"].quantile((6/7)):
                     livingSpaceRange = 6
                 else:
                     livingSpaceRange = 7
                 noRooms=raeume
-                if raeume >=machine_learning["noRooms"].quantile((1/5)):
+                if raeume <machine_learning["noRooms"].quantile((1/5)):
                     noRoomsRange=1
-                elif raeume >=machine_learning["noRooms"].quantile((2/5)):
+                elif raeume <machine_learning["noRooms"].quantile((2/5)):
                     noRoomsRange=2
-                elif raeume >=machine_learning["noRooms"].quantile((3/5)):
+                elif raeume <machine_learning["noRooms"].quantile((3/5)):
                     noRoomsRange=3
-                elif raeume >=machine_learning["noRooms"].quantile((4/5)):
+                elif raeume <machine_learning["noRooms"].quantile((4/5)):
                     noRoomsRange=4
                 else:
                     noRoomsRange = 5
                 yearConstructed=baujahr
-                if baujahr >= machine_learning["yearConstructed"].quantile((1/9)):
+                if baujahr < machine_learning["yearConstructed"].quantile((1/9)):
                     yearConstructedRange = 1
-                elif baujahr >= machine_learning["yearConstructed"].quantile((2/9)):
+                elif baujahr < machine_learning["yearConstructed"].quantile((2/9)):
                     yearConstructedRange = 2
-                elif baujahr >= machine_learning["yearConstructed"].quantile((3/9)):
+                elif baujahr < machine_learning["yearConstructed"].quantile((3/9)):
                     yearConstructedRange = 3
-                elif baujahr >= machine_learning["yearConstructed"].quantile((4/9)):
+                elif baujahr < machine_learning["yearConstructed"].quantile((4/9)):
                     yearConstructedRange = 4
-                elif baujahr >= machine_learning["yearConstructed"].quantile((5/9)):
+                elif baujahr < machine_learning["yearConstructed"].quantile((5/9)):
                     yearConstructedRange = 5
-                elif baujahr >= machine_learning["yearConstructed"].quantile((6/9)):
+                elif baujahr < machine_learning["yearConstructed"].quantile((6/9)):
                     yearConstructedRange = 6
-                elif baujahr >= machine_learning["yearConstructed"].quantile((7/9)):
+                elif baujahr < machine_learning["yearConstructed"].quantile((7/9)):
                     yearConstructedRange = 7
-                elif baujahr >= machine_learning["yearConstructed"].quantile((8/9)):
+                elif baujahr < machine_learning["yearConstructed"].quantile((8/9)):
                     yearConstructedRange = 8
                 else:
                     yearConstructedRange = 9
