@@ -24,7 +24,7 @@ def main():
            </style>
            """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    st.header("🏡 Vorhersage des Mietpreises für Immobilien in Deutschland")
+    st.header("🏡 Vorhersage der Mietpreise für Immobilien in Deutschland")
     st.subheader("📊 Business Analytics: Big Data")
     df_data = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/tabelle.csv", dtype={"Postleitzahl": "string"})
     durchschnittsmieten = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/Durchschnittsmieten.csv")
