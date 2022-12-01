@@ -26,9 +26,9 @@ def main():
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
     st.header("🏡 Vorhersage der Mietpreise für Immobilien in Deutschland")
     st.subheader("📊 Business Analytics: Big Data")
-    df_data = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/tabelle.csv", dtype={"Postleitzahl": "string"})
-    durchschnittsmieten = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/Durchschnittsmieten.csv")
-    df_hist = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/Histogram.csv")
+    df_data = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/tabelle.csv", dtype={"Postleitzahl": "string"})
+    durchschnittsmieten = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/Durchschnittsmieten.csv")
+    df_hist = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/Histogram.csv")
     st.write("""
                   - Die folgende Anwendung liefert eine **Prognose des Mietpreises** (warm) für ein Wohnobjekt anhand der Eingaben des Nutzers.
                   - Unsere Datenbank entält über **178.000 Wohnobjekte** und wird stetig erweitert.
@@ -62,7 +62,7 @@ def main():
     if submitted1:
         try:
             with st.spinner("Bitte warten Prognose wird erstellt"):
-                machine_learning = pd.read_feather(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/ml_streamlit.feather")
+                machine_learning = pd.read_feather(r"https://github.com/tobiarnold/BigData/blob/main/ml_streamlit.feather?raw=true")
                 x = machine_learning[["livingSpaceRange", "livingSpace", "noRoomsRange", "noRooms","yearConstructedRange", "yearConstructed","hasKitchen", "regio1_numeric","big_city"]]
                 y = machine_learning["totalRent"]
                 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
@@ -198,7 +198,7 @@ def main():
         if karte == "Ja":
             try:
                 with st.spinner("Bitte warten Karte wird geladen"):
-                    map_folium = pd.read_csv(r"https://streamlitbigdata.s3.us-west-1.amazonaws.com/geo_immo.csv")
+                    map_folium = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/geo_immo.csv")
                     map_all = folium.Map(location=[map_folium.lat.mean(), map_folium.long.mean()], zoom_start=6)
                     marker_cluster = MarkerCluster().add_to(map_all)
                     for index, location_info in map_folium.iterrows():
