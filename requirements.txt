@@ -2,7 +2,7 @@ streamlit
 pandas 
 streamlit-aggrid
 streamlit-folium
-sklearn
+scikit-learn
 plotly-express
 folium
 
