@@ -57,7 +57,7 @@ def main():
                                               , index=0)
             big_city = st.radio("Befindet sich die Immobilie in einer Großstadt?", ("Ja", "Nein"), index=1)
             kueche = st.radio("Küche vorhanden", ("Ja", "Nein"), index=0)
-            karte = st.radio("Karte anzeigen",("Ja", "Nein"),index=1)
+            # karte = st.radio("Karte anzeigen",("Ja", "Nein"),index=1)
             submitted1 = st.form_submit_button(label="Parameter bestätigen")
     if submitted1:
         try:
@@ -193,23 +193,23 @@ def main():
             st.plotly_chart(fig5, use_container_width=True, config=config)
     except:
         st.write("Diagramme konnten nicht vollständig geladen werden, bitte Seite neu laden.")
-    st.write(" ⚠️ **Beim Anzeigen der Deutschlandkarte und einer erneuten Prognose bitte Seite mit der Taste F5 neu laden. Das Generieren der Karte erfordert zudem etwas Zeit.**")
-    if submitted1:
-        if karte == "Ja":
-            try:
-                with st.spinner("Bitte warten Karte wird geladen"):
-                    map_folium = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/geo_immo.csv")
-                    map_all = folium.Map(location=[map_folium.lat.mean(), map_folium.long.mean()], zoom_start=6)
-                    marker_cluster = MarkerCluster().add_to(map_all)
-                    for index, location_info in map_folium.iterrows():
-                        folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(marker_cluster)
-                    st.write("Zum zoomen auf gewünschte Stelle klicken, Scrollrad der Maus benutzen oder Plus/Minus Button auf der Karte")
-                    st.write("Die Karte enthält alle PLZs aus dem Datensatz mit der dazugehörigen Anzahl an Wohnobjekten und der jeweiligen Durchschnittsmiete.")
-                    st_folium(map_all, width=1000)
-                    st.success("Karte geladen!")
-                time.sleep(99999)
-            except:
-                st.write("Karte konnte nicht geladen werden")
+    #st.write(" ⚠️ **Beim Anzeigen der Deutschlandkarte und einer erneuten Prognose bitte Seite mit der Taste F5 neu laden. Das Generieren der Karte erfordert zudem etwas Zeit.**")
+    #if submitted1:
+    #    if karte == "Ja":
+    #        try:
+    #            with st.spinner("Bitte warten Karte wird geladen"):
+    #                map_folium = pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/BigData/main/geo_immo.csv")
+    #                map_all = folium.Map(location=[map_folium.lat.mean(), map_folium.long.mean()], zoom_start=6)
+    #                marker_cluster = MarkerCluster().add_to(map_all)
+    #                for index, location_info in map_folium.iterrows():
+    #                    folium.Marker([location_info["lat"], location_info["long"]], popup=location_info["popup"]).add_to(marker_cluster)
+    #                st.write("Zum zoomen auf gewünschte Stelle klicken, Scrollrad der Maus benutzen oder Plus/Minus Button auf der Karte")
+    #                st.write("Die Karte enthält alle PLZs aus dem Datensatz mit der dazugehörigen Anzahl an Wohnobjekten und der jeweiligen Durchschnittsmiete.")
+    #                st_folium(map_all, width=1000)
+    #                st.success("Karte geladen!")
+    #            time.sleep(99999)
+    #       except:
+    #           st.write("Karte konnte nicht geladen werden")
 
 if __name__ == "__main__":
   main()
