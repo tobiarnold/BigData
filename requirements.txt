@@ -3,6 +3,6 @@ pandas
 streamlit-aggrid
 streamlit-folium==0.6.15
 scikit-learn
-plotly-express=0.4.1
-folium=0.13.0
+plotly-express==0.4.1
+folium==0.13.0
 
