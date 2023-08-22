@@ -32,7 +32,8 @@ def main():
     st.write("""
                   - Die folgende Anwendung liefert eine **Prognose des Mietpreises** (warm) für ein Wohnobjekt anhand der Eingaben des Nutzers.
                   - Die Datenbank entält über **178.000 Wohnobjekte**.
-                  - Neben der Prognose können auch verschiedene **Diagramme** und eine **interaktive Karte** aus dem Datensatz betrachtet werden
+                  - Neben der Prognose können auch verschiedene **Diagramme** #und eine **interaktive Karte** 
+                  aus dem Datensatz betrachtet werden
                    """)
     st.info('✅ Zum Starten der Prognose bitte Parameter an der Sidebar auswählen und den "Parameter bestätigen" Button drücken.')
     st.write("⚠️ bei Zugriff mit mobilen Geräten ist der Filter für die Prognose standardmäßig ausgeblendet und lässt sich mit dem Pfeil oben links wieder einblenden")
